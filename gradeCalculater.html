@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f8f8;
+        }
+        .container {
+            background-color: bisque;
+            padding: 20px 30px;
+            border-radius: 15px;
+            text-align: center;
+
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            border-radius: 5px;
+
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            background-color: brown;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+        #result {
+            margin-top: 15px;
+            color: white;
+            background-color:darkcyan;
+            border-radius: 20px;
+            
+        }
+        button:hover {
+            background-color: red;
+        }
+        label {
+             display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="">Maths</label>
+        <input type="number" id="m1" placeholder="Enter Maths Maths"><br>
+        <label for="">Physics</label>
+        <input type="number" id="m2" placeholder="Enter Physics Marks"><br>
+        <label for="">Chemistry</label>
+        <input type="number" id="m3" placeholder="Enter chemistry Marks"><br>
+        <button onclick="calculate()">Submit</button>
+        <div id="result"></div>
+    </div>
+    <script>
+       function calculate() {
+        const m1 = Number(document.getElementById("m1").value);
+        const m2 = Number(document.getElementById("m2").value);
+        const m3 = Number(document.getElementById("m3").value);
+        const result = document.getElementById("result");
+        result.innerHTML= "";
+        // validation
+        if (isNaN(m1) || m1 < 0) {
+            result.innerText = "Enter a valid positive number for Maths.";
+            return;
+        }
+        if (isNaN(m2) || m2 < 0) {
+            result.innerText = "Enter a valid positive number for Physics.";
+            return;
+        }
+        if (isNaN(m3) || m3 < 0) {
+            result.innerText = "Enter a valid positive number for Chemistry.";
+            return;
+        }
+        const total = m1 + m2 + m3;
+        const average = total /3;
+        let grade = "";
+        if (average >= 90 ) grade = "A";
+        else if (average >= 75) grade = "B";
+        else if (average >= 60) grade = "C";
+        else grade = "Fail";
+        const totalLine = document.createElement("div");
+        totalLine.textContent= "Total:" + total
+        result.appendChild (totalLine); 
+        const avgLine = document.createElement("div");
+        avgLine.textContent = "Average:" + average.toFixed(2);
+        result.appendChild(avgLine);
+        const gradeLine = document.createElement("div");
+        gradeLine.textContent = "Grade:" + grade;
+        result.appendChild(gradeLine);
+
+
+
+
+       }
+    </script>
+</body>
+</html>
