@@ -72,16 +72,16 @@
         const result = document.getElementById("result");
         result.innerHTML= "";
         // validation
-        if (isNaN(m1) || m1 < 0) {
-            result.innerText = "Enter a valid positive number for Maths.";
+        if (isNaN(m1) || m1 < 0 || m1 > 100) {
+            result.innerText = "Enter a valid number.";
             return;
         }
-        if (isNaN(m2) || m2 < 0) {
-            result.innerText = "Enter a valid positive number for Physics.";
+        if (isNaN(m2) || m2 < 0 || m2 > 100) {
+            result.innerText = "Enter a valid number.";
             return;
         }
-        if (isNaN(m3) || m3 < 0) {
-            result.innerText = "Enter a valid positive number for Chemistry.";
+        if (isNaN(m3) || m3 < 0 || m3 > 100) {
+            result.innerText = "Enter a valid number.";
             return;
         }
         const total = m1 + m2 + m3;
